@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+
+    <title>litebrite</title>
+
+    <link href="cover.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="epoch.min.css">
+    <script src="jquery.min.js"></script>
+    <script src="d3.min.js"></script>
+    <script src="epoch.min.js"></script>
+  </head>
+
+  <body>
+          <div id="lineChart" style="width: 800px; height: 400px; margin: 0 auto;"></div>
+  <script>
+        var init = [{time: ((new Date()).getTime() / 1000), y: 0}];
+        var lineChartData = [
+          {
+            label: "Red",
+            values: init,
+          },
+          {
+            label: "Green",
+            values: init,
+          },
+          {
+            label: "Blue",
+            values: init,
+          }
+        ];
+
+        var chart = $('#lineChart').epoch({
+          type: 'time.line',
+          data: lineChartData,
+        });
+
+        var uri = "ws://" + window.location.host + "/data";
+
+        var ws = new WebSocket(uri);
+        
+        ws.onopen = function (e) {
+            console.log(e);
+        };
+
+        ws.onmessage = function (e) {
+           console.log(e);
+
+           var timestamp = ((new Date()).getTime() / 1000);
+           var data = $.parseJSON(e.data)
+           var entry = [];
+           entry.push({ time: timestamp, y: data.Red});
+           entry.push({ time: timestamp, y: data.Green});
+           entry.push({ time: timestamp, y: data.Blue});
+           chart.push(entry);
+        };
+  </script>
+  </body>
+</html>
+

@@ -1,0 +1,46 @@
+a,
+a:focus,
+a:hover {
+  color: #fff;
+}
+
+
+html,
+body {
+  height: 100%;
+  background-color: #333;
+  background: #7d7e7d; /* Old browsers */
+  background: -moz-linear-gradient(-45deg,  #7d7e7d 0%, #0e0e0e 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, right bottom, color-stop(0%,#7d7e7d), color-stop(100%,#0e0e0e)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(-45deg,  #7d7e7d 0%,#0e0e0e 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(-45deg,  #7d7e7d 0%,#0e0e0e 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(-45deg,  #7d7e7d 0%,#0e0e0e 100%); /* IE10+ */
+  background: linear-gradient(135deg,  #7d7e7d 0%,#0e0e0e 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7d7e7d', endColorstr='#0e0e0e',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  color: #fff;
+  text-align: center;
+  padding-top: 50px;
+}
+
+#lineChart {
+  background-color: #efefef;
+  font-size: 12pt;
+
+}
+
+#lineChart .red .line  {
+  stroke-width: 2px;
+  stroke: red;
+}
+
+#lineChart .green .line  {
+  stroke-width: 2px;
+  stroke: green;
+}
+
+#lineChart .blue .line  {
+  stroke-width: 2px;
+  stroke: blue;
+}
